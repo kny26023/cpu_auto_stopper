@@ -4,7 +4,7 @@ Description=CPU Auto Stopper
 [Service]
 # Command to execute when the service is started
 User=root
-ExecStart=/usr/bin/python YOUR_CPU_AUTO_STOPPER.PY_PATH #Put your cpu_auto_stopper.py path at YOUR_CPU_AUTO_STOPPER.PY
+ExecStart=/usr/bin/python YOUR_CPU_AUTO_STOPPER_FINAL.PY_PATH #Put your cpu_auto_stopper_final.py path at YOUR_CPU_AUTO_STOPPER_FINAL.PY
 WorkingDirectory= YOUR_DIRECTORY #Put your working directory at YOUR_DIRECTORY
 Restart=on-failure
 
