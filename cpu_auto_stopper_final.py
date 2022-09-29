@@ -57,7 +57,7 @@ while(True):
         if((CPU_LIST[CONTAINER] / TIME_LIST[CONTAINER]) < MIN_CPU and (MEM_LIST[CONTAINER] / TIME_LIST[CONTAINER]) >= 30720):
             if(TIME_LIST[CONTAINER] >= MAX_SEC):
                 json="{'text': 'Container %s used %.2fMiB of Memory with using average %.2fpercent of CPU Util. Container was stopped.'}" %(CONTAINER, MEM_LIST[CONTAINER] / TIME_LIST[CONTAINER], CPU_LIST[CONTAINER] / TIME_LIST[CONTAINER])
-                response = requests.post('https://hooks.slack.com/services/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', headers=headers, data=json)
+                response = requests.post('YOUR_SLACK_WEBHOOK', headers=headers, data=json) #Put your Slack webhook at YOUR_SLACK_WEBHOOK
                 #Docker stop part
                 stop= "docker stop %s" %(CONTAINER)
                 subprocess.run(stop, shell=True)
