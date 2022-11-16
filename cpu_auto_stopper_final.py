@@ -68,10 +68,11 @@ while(True):
                 del(CPU_LIST[CONTAINER])
                 del(MEM_LIST[CONTAINER])
                 del(TIME_LIST[CONTAINER])
-        else:
-            if(TIME_LIST[CONTAINER] >= MAX_SEC):
-                CPU_LIST[CONTAINER] = 0
-                MEM_LIST[CONTAINER] = 0
-                TIME_LIST[CONTAINER] = 1
             else:
-                TIME_LIST[CONTAINER] += time.time() - start
+                TIME_LIST[CONTAINER] += time.time() - start 
+        elif(TIME_LIST[CONTAINER] >= MAX_SEC):
+            CPU_LIST[CONTAINER] = 0
+            MEM_LIST[CONTAINER] = 0
+            TIME_LIST[CONTAINER] = 1
+        else:
+            TIME_LIST[CONTAINER] += time.time() - start
