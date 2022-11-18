@@ -62,7 +62,7 @@ while(True):
         #Stop container
         if((CPU_LIST[CONTAINER] / TIME_LIST[CONTAINER]) <= MIN_CPU and (MEM_LIST[CONTAINER] / TIME_LIST[CONTAINER]) >= 30720 and TIME_LIST[CONTAINER] >= MAX_SEC):
             json="{'text': 'Container %s used %.2fMiB of Memory with using average %.2fpercent of CPU Util. Container was stopped.'}" %(CONTAINER, MEM_LIST[CONTAINER] / TIME_LIST[CONTAINER], CPU_LIST[CONTAINER] / TIME_LIST[CONTAINER])
-            response = requests.post('https://hooks.slack.com/services/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', headers=headers, data=json)
+            response = requests.post('YOUR_WEBHOOK', headers=headers, data=json)
             stop= "docker stop %s" %(CONTAINER)
             subprocess.run(stop, shell=True)
             del(CPU_LIST[CONTAINER])
@@ -70,7 +70,7 @@ while(True):
             del(TIME_LIST[CONTAINER])
         elif((CPU_LIST2[CONTAINER] / TIME_LIST2[CONTAINER]) <= MIN_CPU2 and TIME_LIST2[CONTAINER] >= MAX_SEC2):
             json="{'text': 'Container %s used average %.2fpercent of CPU Util. Container was stopped.'}" %(CONTAINER, CPU_LIST[CONTAINER] / TIME_LIST[CONTAINER])
-            response = requests.post('https://hooks.slack.com/services/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', headers=headers, data=json)
+            response = requests.post('YOUR_WEBHOOK', headers=headers, data=json)
             stop= "docker stop %s" %(CONTAINER)
             subprocess.run(stop, shell=True)
             del(CPU_LIST2[CONTAINER])
